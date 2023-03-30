@@ -1,0 +1,54 @@
+# create user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "bisa",
+    "email": "l1@gmail.com",
+    "password": "123",
+    "confPassword": "123",
+    "role": "user"
+}
+
+###
+# get all user
+GET http://localhost:5000/users
+
+###
+# get special user
+GET http://localhost:5000/users/262b7c83-c338-42fe-82f6-e4830b959c72
+
+### update user
+PATCH http://localhost:5000/users/3530f5b9-b5d0-4b20-a0ea-fe004f83ebe4
+Content-Type: application/json
+
+{
+    "name": "bangun updated",
+    "email": "bangunpagi@gmail.com",
+    "password": "123123",
+    "confPassword": "123123",
+    "role": "admin"
+}
+
+###
+//delete user
+DELETE  http://localhost:5000/users/262b7c83-c338-42fe-82f6-e4830b959c72
+
+#coba login
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "l1@gmail.com",
+    "password": "123"
+
+}
+
+###
+# cek me
+GET http://localhost:5000/me
+
+###
+# logout
+DELETE  http://localhost:5000/logout

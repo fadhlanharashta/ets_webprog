@@ -6,13 +6,14 @@ import {
     updateCars,
     deleteCars
 } from "../controllers/Cars.js";
+import { verifyUser } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/cars', getCars);
-router.get('/cars/:id', getCarsById);
-router.post ('/cars', createCars);
-router.patch('/cars/:id', updateCars);
-router.delete('/cars/:id', deleteCars);
+router.get('/cars', verifyUser, getCars);
+router.get('/cars/:id', verifyUser, getCarsById);
+router.post ('/cars', verifyUser, createCars);
+router.patch('/cars/:id', verifyUser, updateCars);
+router.delete('/cars/:id', verifyUser, deleteCars);
 
 export default router;

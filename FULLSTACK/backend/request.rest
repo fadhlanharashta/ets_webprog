@@ -23,27 +23,39 @@ PATCH http://localhost:5000/users/3530f5b9-b5d0-4b20-a0ea-fe004f83ebe4
 Content-Type: application/json
 
 {
-    "name": "bangun updated",
-    "email": "bangunpagi@gmail.com",
-    "password": "123123",
-    "confPassword": "123123",
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "confPassword": "admin",
     "role": "admin"
 }
 
 ###
 //delete user
-DELETE  http://localhost:5000/users/262b7c83-c338-42fe-82f6-e4830b959c72
+DELETE  http://localhost:5000/users/359a7b50-5b22-41e1-acd2-e3294ba88835
 
-#coba login
+#login admin
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "l1@gmail.com",
-    "password": "123"
+    "email": "admin@gmail.com",
+    "password": "admin"
 
 }
+
+#login user
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "user@gmail.com",
+    "password": "user"
+
+}
+
 
 ###
 # cek me
@@ -52,3 +64,36 @@ GET http://localhost:5000/me
 ###
 # logout
 DELETE  http://localhost:5000/logout
+
+###
+# get all cars
+GET http://localhost:5000/cars
+
+###
+# get one cars
+GET http://localhost:5000/cars/89e52bdd-c83c-492f-83a2-968b8f57c542
+#create car
+###
+POST http://localhost:5000/cars/
+Content-Type: application/json
+
+{
+    "name": "GAZ",
+    "price": "80.000.000"
+
+}
+
+#update car
+###
+PATCH  http://localhost:5000/cars/89e52bdd-c83c-492f-83a2-968b8f57c542
+Content-Type: application/json
+
+{
+    "name": "Avanza Updated",
+    "price": 220
+
+}
+
+#delete Cache-Control: 
+###
+DELETE   http://localhost:5000/cars/0f2bbc38-864f-4c48-9e7b-a798f396236f
